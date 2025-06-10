@@ -1,0 +1,15 @@
+<table class="table">
+	<tbody>
+		@for (attraction of attractions; track attraction) {
+			<tr>
+				<td class="city-info">
+					<img [src]="attraction.attractionPhotoUrl" class="city-photo" alt="Фото города" />
+					<div class="city-details">
+						<strong>{{ attraction.attractionName }}</strong><br />
+						<span>{{ attraction.attractionDescription }}</span><br />
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

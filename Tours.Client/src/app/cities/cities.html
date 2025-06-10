@@ -1,0 +1,20 @@
+<h1>Список городов</h1>
+
+<table class="table">
+	<tbody>
+		@for (city of cities; track city) {
+			<tr>
+				<td class="city-info">
+					<img [src]="city.photoUrl" class="city-photo" alt="Фото города" />
+					<div class="city-details">
+					<strong>{{ city.cityName }}</strong><br />
+					<span>{{ city.cityDescription }}</span><br />
+					<a [routerLink]="['/attractions', city.cityId ]" class="attractions-link">
+						Достопримечательности
+					</a>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

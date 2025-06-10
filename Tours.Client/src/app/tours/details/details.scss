@@ -1,0 +1,14 @@
+.city-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.city-photo {
+  margin-right: 10px;
+  width: 200px;
+  height: auto;
+}
+
+.city-details {
+  flex-grow: 1;
+}

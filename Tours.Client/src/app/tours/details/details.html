@@ -1,0 +1,18 @@
+<h1>Просмотр достопримечательностей</h1>
+
+<table class="table">
+	<tbody>
+		@for (item of attractions; track item) {
+			<tr>
+				<td class="city-info">
+					<img [src]="item.attraction.attractionPhotoUrl" class="city-photo" alt="Фото достопримечательности" />
+					<div class="city-details">
+					<strong>{{ item.attraction.attractionName }}</strong><br />
+					<span>Описание: {{ item.attraction.attractionDescription }}</span><br />
+					<span>Дата посещения: {{ item.visitDate | date:'dd.MM.yyyy' }} в {{ item.visitDate | date:'HH:mm' }}</span>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

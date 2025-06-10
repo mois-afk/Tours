@@ -1,0 +1,22 @@
+@if (!isLogPage && !isOrderPage) {
+	<div class="card-container d-flex flex-wrap">
+		@for (tour of tours; track tour.tourId) {
+			<div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
+				<img [src]="tour.url" class="card-img-top" style="object-fit: cover; height: 200px;" alt="...">
+				<div class="card-body">
+				<h5 class="card-title">{{ tour.tourName }}</h5>
+				<p class="card-text">{{ tour.tourDescription }}</p>
+				<p class="card-text">Цена: {{ tour.tourPrice }} Руб</p>
+				<p class="card-text">С: {{ tour.startDate | date: 'd MMMM yyyy' }}</p>
+				<p class="card-text">До: {{ tour.endDate | date: 'd MMMM yyyy' }}</p>
+				<a [routerLink]="['/tours/', tour.tourId]" class="btn btn-success">Подробнее</a>
+				<button type="button" class="btn btn-primary" (click)="viewTickets(tour.tourId)">Посмотреть билеты</button>
+				@if (isLoggedIn) {
+					<button type="button" class="btn btn-success" (click)="buyTour(tour.tourId)">Купить</button>
+					<button type="button" class="btn btn-success" (click)="addToMyTour(tour.tourId)">Добавить В мой тур</button>
+				}
+				</div>
+			</div>
+		}
+	</div>
+}

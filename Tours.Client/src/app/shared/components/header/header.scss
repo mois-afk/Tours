@@ -1,0 +1,12 @@
+.header {
+	z-index: 1000;
+	position: fixed;
+	width: 100%;
+	margin-bottom: 300px;
+	top: 0;
+}
+
+.dropdown-menu {
+	position: absolute;
+	z-index: 3000;
+}

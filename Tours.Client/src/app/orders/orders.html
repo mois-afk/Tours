@@ -1,0 +1,38 @@
+<div class="container mt-4">
+	<h1>Заказ туров</h1>
+
+	<ng-container *ngIf="groupedTours.length > 0; else emptyCart">
+		<table class="table table-bordered">
+		<thead>
+			<tr>
+			<th>Название</th>
+			<th>Описание</th>
+			<th>Цена</th>
+			<th>Продолжительность</th>
+			<th>Кол-во</th>
+			<th>Удалить</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let tourGroup of groupedTours">
+			<td>{{ tourGroup.tourName }}</td>
+			<td>{{ tourGroup.tourDescription }}</td>
+			<td>{{ tourGroup.tourPrice }}</td>
+			<td>{{ tourGroup.startDate | date:'dd.MM.yyyy' }} - {{ tourGroup.endDate | date:'dd.MM.yyyy' }}</td>
+			<td>{{ tourGroup.count }}</td>
+			<td>
+				<button class="btn btn-danger" (click)="removeTour(tourGroup.tourId)">Удалить</button>
+			</td>
+			</tr>
+		</tbody>
+		</table>
+
+		<h2>Общая стоимость заказа: {{ total | number:'1.2-2' }}</h2>
+
+		<button class="btn btn-outline-success" (click)="submitOrder()">Оформить заказ</button>
+	</ng-container>
+
+	<ng-template #emptyCart>
+		<h2>У вас нет выбранных туров</h2>
+	</ng-template>
+</div>

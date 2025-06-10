@@ -1,0 +1,68 @@
+<div id="background-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active position-relative">
+            <img src="https://www.rollingstone.com/wp-content/uploads/2020/01/AdobeStock_117789390.jpeg"
+                 class="d-block w-100" alt="">
+            <div class="carousel-caption d-none d-md-block position-absolute top-0 start-50 translate-middle-x" style="margin-top: 5%;">
+                @if (isLoggedIn)
+                {
+                    <h1 class="display-4" style="color: green">Добро пожаловать, {{ '@ViewData["Username"]' }}!</h1>
+                }
+                @else 
+                {
+                    <h1 class="display-4" style="color: green">Добро пожаловать, путешественник!</h1>
+                }
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://sportishka.com/uploads/posts/2022-03/1646335290_6-sportishka-com-p-krasivie-peizazhi-gor-turizm-krasivo-foto-7.jpg"
+                 class="d-block w-100 carousel-background" alt="...">
+            <div class="carousel-caption d-none d-md-block position-absolute top-0 start-50 translate-middle-x" style="margin-top: 5%;">
+                <h1 class="display-4" style="color: white">Выбери путешествие под себя!</h1>
+            </div>
+            <div class="review-container">
+                <img src="https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-v-ochkah-78-foto-78.jpg" class="review-photo" alt="Reviewer 2">
+                <div class="review-text">
+                    <p>"Прекрасный сервис и отличные впечатления."</p>
+                    <p>- Marina</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://sportishka.com/uploads/posts/2022-03/1646383216_4-sportishka-com-p-pogruzhenie-v-vodu-turizm-krasivo-foto-5.jpg"
+                 class="d-block w-100 carousel-background" alt="...">
+            <div class="carousel-caption d-none d-md-block position-absolute top-0 start-50 translate-middle-x" style="margin-top: 5%;">
+                <h1 class="display-4" style="color: white">Окунись в неизведанное!</h1>
+            </div>
+            <div class="review-container">
+                <img src="https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663110850_6-mykaleidoscope-ru-p-spokoinii-chelovek-vkontakte-8.jpg" class="review-photo" alt="Reviewer 2">
+                <div class="review-text">
+                    <p>"Удивительное приключение с замечательной командой."</p>
+                    <p>- Ivan</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://m1.online-agent.ru/description/imagescache/2c/2ce1eb0da9da85a5de94e4c6044abbbe.jpg"
+                 class="d-block w-100 carousel-background" alt="...">
+            <div class="carousel-caption d-none d-md-block position-absolute top-0 start-50 translate-middle-x" style="margin-top: 5%;">
+                <h1 class="display-4" style="color: white">Или просто отдохни от суеты</h1>
+            </div>
+            <div class="review-container">
+                <img src="https://img.fonwall.ru/o/25/paren-ochki-letnyie-shlem.jpg?route=thumb&h=350" class="review-photo" alt="Reviewer 4">
+                <div class="review-text">
+                    <p>"Отличный способ провести выходные!"</p>
+                    <p>- Roma</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#background-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#background-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

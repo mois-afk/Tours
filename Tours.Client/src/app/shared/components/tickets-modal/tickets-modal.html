@@ -1,0 +1,59 @@
+<div class="modal-header">
+  	<h5 class="modal-title">Билеты</h5>
+  	<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+</div>
+<div class="modal-body">
+	<ng-container *ngIf="getFilteredTickets('Самолёт').length; else noFlights">
+		<h5>Билеты на самолет</h5>
+		<div class="table-responsive">
+		<table class="table">
+			<thead>
+			<tr>
+				<th>Откуда</th>
+				<th>Куда</th>
+				<th>Дата отправления</th>
+				<th>Дата прибытия</th>
+				<th>Цена</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr *ngFor="let ticket of getFilteredTickets('Самолёт')" [ngClass]="getRowClass(ticket.status)">
+				<td class="wrap-text">{{ ticket.fromCity }}</td>
+				<td class="wrap-text">{{ ticket.toCity }}</td>
+				<td class="wrap-text">{{ ticket.departureDate | date: 'dd.MM.yyyy HH:mm' }} {{ getTimeOffset(ticket.fromCity) }}</td>
+				<td class="wrap-text">{{ ticket.arrivalDate | date: 'dd.MM.yyyy HH:mm' }} {{ getTimeOffset(ticket.toCity) }}</td>
+				<td>{{ ticket.price }} Руб</td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+	</ng-container>
+	<ng-template #noFlights><p>Билеты на самолет не найдены</p></ng-template>
+
+	<ng-container *ngIf="getFilteredTickets('Поезд').length; else noTrains">
+		<h5>Билеты на поезд</h5>
+		<div class="table-responsive">
+		<table class="table">
+			<thead>
+			<tr>
+				<th>Откуда</th>
+				<th>Куда</th>
+				<th>Дата отправления</th>
+				<th>Дата прибытия</th>
+				<th>Цена</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr *ngFor="let ticket of getFilteredTickets('Поезд')" [ngClass]="getRowClass(ticket.status)">
+				<td class="wrap-text">{{ ticket.fromCity }}</td>
+				<td class="wrap-text">{{ ticket.toCity }}</td>
+				<td class="wrap-text">{{ ticket.departureDate | date: 'dd.MM.yyyy HH:mm' }} {{ getTimeOffset(ticket.fromCity) }}</td>
+				<td class="wrap-text">{{ ticket.arrivalDate | date: 'dd.MM.yyyy HH:mm' }} {{ getTimeOffset(ticket.toCity) }}</td>
+				<td>{{ ticket.price }} Руб</td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+	</ng-container>
+	<ng-template #noTrains><p>Билеты на поезд не найдены</p></ng-template>
+</div>

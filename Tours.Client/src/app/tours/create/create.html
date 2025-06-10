@@ -1,0 +1,54 @@
+<div class="container">
+	<h1 class="mt-5">Добавление тура</h1>
+	<form (ngSubmit)="submit()" #form="ngForm">
+		<div class="form-group">
+			<label>Название тура:</label>
+			<input class="form-control" [(ngModel)]="tour.tourName" name="tourName" required />
+		</div>
+
+		<div class="form-group">
+			<label>Описание тура:</label>
+			<textarea class="form-control" [(ngModel)]="tour.tourDescription" name="tourDescription" rows="3" required></textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Цена тура:</label>
+			<input class="form-control" [value]="tour.tourPrice" readonly />
+		</div>
+
+		<div class="form-group">
+			<label>Дата начала тура:</label>
+			<input class="form-control" type="date" [value]="tour.startDate | date:'yyyy-MM-dd'" readonly />
+		</div>
+
+		<div *ngFor="let item of selectedAttractions; let i = index" class="d-flex gap-2 mb-2 align-items-end">
+			<div class="form-group flex-grow-1">
+				<label>Достопримечательность:</label>
+				<select class="form-control" [(ngModel)]="item.attractionId" name="attractionId{{i}}">
+					<option [value]="''" disabled selected>Выберите...</option>
+					<option *ngFor="let attraction of attractions" [value]="attraction.attractionId">{{ attraction.attractionName }}</option>
+				</select>
+			</div>
+
+			<div class="form-group flex-grow-1">
+				<label>Дата посещения:</label>
+				{{ item.visitDate }}
+				<input class="form-control" type="date" [(ngModel)]="item.visitDate" name="attractionDate{{i}}" (ngModelChange)="checkDate(item.visitDate)" />
+			</div>
+
+			<button type="button" class="btn btn-danger" (click)="removeAttraction(i)">Удалить</button>
+		</div>
+
+		
+		<!-- <div *ngFor="let id of attractionIds()" class="form-group">
+			<label>Дата посещения {{ getAttractionName(id) }}:</label>
+			<input class="form-control" type="date" [value]="tour.attractionDate[id]" disabled />
+			<button type="button" class="btn btn-danger" (click)="removeAttraction(id)">Удалить</button>
+		</div> -->
+		
+		<div class="btn-group mt-3">
+			<button type="button" class="btn btn-outline-secondary" (click)="addAttraction()">Добавить достопримечательность</button>
+			<button type="submit" class="btn btn-success">Купить</button>
+		</div>
+	</form>
+</div>
